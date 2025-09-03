@@ -11,6 +11,7 @@
   --input: #29382f;
   --ring: #38e07b;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -91,10 +92,11 @@ main {
 
 .input-taskName {
   border-style: none;
+  font-family: "Spline Sans";
   background-color: var(--secondary);
   color: var(--foreground);
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 15px 10px;
 }
 
@@ -102,6 +104,42 @@ main {
   border: 1px solid var(--primary);
   outline: none;
   background-color: #1e2a23;
+}
+
+.input-taskName::placeholder{
+  color: var(--foreground);
+  opacity: 0.5;
+}
+
+.input-select{
+  appearance: none;
+  border-style: none;
+  background-color: var(--secondary);
+  color: var(--foreground);
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px 10px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+.default-option{
+  color: var(--foreground);
+  opacity: 0.5;
+}
+
+.input-select:focus {
+  border: 1px solid var(--primary);
+  outline: none;
+  background-color: #1e2a23;
+}
+
+textarea{
+  height: 120px;
+  resize: none;
 }
 
 .right-container {

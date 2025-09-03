@@ -25,6 +25,20 @@
             <div class="container-addTask">
                 <h2 class="title-addTaks">Adicionar Tarefa</h2>
                 <input class="input-taskName" type="text" name="taskName" placeholder="Nome da tarefa">
+                <select class="input-select" name="priority" id="priority">
+                    <option class="default-option" value="" disabled selected hidden>Defina a prioridade:</option>
+                    <option value="high">Alta</option>
+                    <option value="medium">Média</option>
+                    <option value="low">Baixa</option>
+                </select>
+                <select class="input-select" name="priority" id="priority">
+                    <option class="default-option" value="" disabled selected hidden>Defina o tipo:</option>
+                    <option value="Work">Trabalho</option>
+                    <option value="studies">Estudos</option>
+                    <option value="entertainment">Lazer</option>
+                </select>
+                <input type="date" class="input-taskName">
+                <textarea name="description" id="description" class="input-taskName" placeholder="Descrição da tarefa..."></textarea>
             </div>
         </div>
         <div class="right-container">
