@@ -1,0 +1,108 @@
+:root {
+  --foreground: #ffffff;
+  --background: #111714;
+  --primary: #38e07b;
+  --primary-foreground: #111714;
+  --secondary: #29382f;
+  --secondary-foreground: #9eb7a8;
+  --card: #1a241f;
+  --card-foreground: #ffffff;
+  --border: #29382f;
+  --input: #29382f;
+  --ring: #38e07b;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Spline Sans";
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+header {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  height: 55px;
+  padding: 0 5%;
+  border-bottom: 1px solid var(--border);
+}
+
+.container-logo {
+  display: flex;
+  align-items: center;
+  font-size: 0.6rem;
+}
+
+.logo {
+  color: var(--primary);
+  width: auto;
+  height: 24px;
+  margin-right: 18px;
+}
+
+.btn-mode {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: var(--border);
+  border-radius: 50%;
+  border-style: none;
+  cursor: pointer;
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+main {
+  display: flex;
+  height: calc(100vh - 56px);
+}
+
+.left-container {
+  width: 30%;
+  height: 100%;
+  border-right: 1px solid var(--border);
+  overflow: auto;
+}
+
+.container-addTask {
+  padding: 0px 8%;
+}
+
+.title-addTaks {
+  font-weight: 600;
+  margin: 30px 0;
+}
+
+.input-taskName {
+  border-style: none;
+  background-color: var(--secondary);
+  color: var(--foreground);
+  width: 100%;
+  border-radius: 5px;
+  padding: 15px 10px;
+}
+
+.input-taskName:focus {
+  border: 1px solid var(--primary);
+  outline: none;
+  background-color: #1e2a23;
+}
+
+.right-container {
+}
