@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./js/main.js" />
     <link
       href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap"
       rel="stylesheet"
@@ -25,7 +24,7 @@
         <h1 class="title">TaskMaster</h1>
       </div>
 
-      <button class="btn-mode">
+      <button class="btn-mode" id="theme-toggle">
         <img src="./assets/img/lightMode.svg" alt="lightmode" />
       </button>
     </header>
@@ -81,19 +80,41 @@
               <div class="radio">
                 <label>
                   <input type="radio" name="option[356]" value="288" />
-                  <span>Todas</span>
+                  <span>Ordenar</span>
                 </label>
               </div>
               <div class="radio">
                 <label>
                   <input type="radio" name="option[356]" value="288" />
-                  <span>Todas</span>
+                  <span>Filtrar</span>
                 </label>
               </div>
             </div>
+          </div>
+          <div class="container-tasks">
+
+            <div class="card-task">
+              <div class="taskTitle">
+                <h3>Reunião de Planejamento de Projeto</h3>
+                <div class="tooltip">
+                  <span class="tooltiptext">Alta</span>
+                </div>
+              </div>              
+              <p class="task-date">Data limite: 10/12/2009</p>
+              <p class="task-description">
+                Discutir os próximos passos e definir o escopo para sprint 2.
+              </p>
+              <p class="task-type">Trabalho</p>
+              <div class="task-card-buttons">
+                <button class="concluded-button">Concluir</button>
+                <button class="delete-button">Deletar</button>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
     </main>
   </body>
+  <script src="./js/main.js" defer></script>
 </html>
