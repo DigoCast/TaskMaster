@@ -321,6 +321,14 @@ h3 {
   flex-shrink: 0;
 }
 
+.tooltip-medium{
+  background-color: var(--medium-priority);
+}
+
+.tooltip-low{
+  background-color: var(--primary);
+}
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: auto;

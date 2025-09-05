@@ -106,8 +106,8 @@
             </div>
           </div>
 
-          <div class="container-tasks" id="container-tasks">
-            <div class="card-task">
+          <ul class="container-tasks" id="container-tasks">
+            <li class="card-task">
               <div class="upper">
                 <div class="taskTitle">
                   <h3>Reunião de Planejamento de Projeto</h3>
@@ -123,10 +123,10 @@
               </div>
               <div class="task-card-buttons">
                 <button class="concluded-button">Concluir</button>
-                <button class="delete-button">Deletar</button>
+                <button class="delete-button" onclick="deleteTask(this)">Deletar</button>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </main>

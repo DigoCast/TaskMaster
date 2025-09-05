@@ -1,15 +1,22 @@
+let tasks = []
+
 function addTask() {
   let taskName = document.getElementById("taskName").value;
   let taskPriority = document.getElementById("taskPriority").value;
   let taskType = document.getElementById("taskType").value;
-  let taskDate = document.getElementById("taskDate").value;
+  let inputDate = document.getElementById("taskDate").value;
   let taskDescription = document.getElementById("taskDescription").value;
 
-  if(!taskName || !taskPriority || !taskType || !taskDate || !taskDescription){
+  if ( !taskName || !taskPriority || !taskType || !inputDate || !taskDescription ) {
     alert("Preencha todos os campos da tarefa!");
     return;
   }
-  let newTask = document.createElement("div");
+
+  let taskDateDay = inputDate.split("-")[2];
+  let taskDateMonth = inputDate.split("-")[1];
+  let taskDateYear = inputDate.split("-")[0]; //formatar data e salvar em uma variavel.
+
+  let newTask = document.createElement("li");
   newTask.classList.add("card-task");
   container = document.getElementById("container-tasks");
   newTask.innerHTML = `
@@ -19,7 +26,7 @@ function addTask() {
                   <span class="tooltiptext">${taskPriority}</span>
                 </div>
               </div>              
-              <p class="task-date">Data limite:  ${taskDate}</p>
+              <p class="task-date">Data limite:  ${taskDateDay}/${taskDateMonth}/${taskDateYear}</p>
               <p class="task-description">${taskDescription}</p>
               <p class="task-type">${taskType}</p>
               <div class="task-card-buttons">
@@ -27,5 +34,22 @@ function addTask() {
                 <button class="delete-button">Deletar</button>
               </div>
             `;
-  container.append(newTask);
+
+  const taskObject = {taskName, taskPriority, taskType, taskDescription} // Adicionar data
+  const deleteButton = newTask.querySelector(".delete-button");
+  deleteButton.addEventListener("click", function(){
+    newTask.remove();
+  })
+
+  container.appendChild(newTask);
+
+  document.getElementById("taskName").value = "";
+  document.getElementById("taskPriority").value = "";
+  document.getElementById("taskType").value = "";
+  document.getElementById("taskDate").value = "";
+  document.getElementById("taskDescription").value = "";
+}
+
+function deleteTask(element){
+  element.closest("li.card-task").remove();
 }
