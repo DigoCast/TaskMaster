@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +12,7 @@
     <title>TaskMaster</title>
   </head>
   <body>
+
     <header>
       <div class="container-logo">
         <svg
@@ -25,9 +26,11 @@
       </div>
 
       <button class="btn-mode" id="theme-toggle">
-        <img src="./assets/img/lightMode.svg" alt="lightmode" />
+        <img src="./assets/img/lightMode.svg" alt="lightmode" id="lightmode-ico"/>
+        <img src="./assets/img/dark-mode.svg" alt="darkmode" id="darkmode-ico"/>
       </button>
     </header>
+
     <main>
       <div class="left-container">
         <div class="container-addTask">
@@ -38,8 +41,9 @@
               type="text"
               name="taskName"
               placeholder="Nome da tarefa"
+              id="taskName"
             />
-            <select class="input-select" name="priority" id="priority">
+            <select class="input-select" name="priority" id="taskPriority">
               <option class="default-option" value="" disabled selected hidden>
                 Defina a prioridade:
               </option>
@@ -47,18 +51,18 @@
               <option value="medium">Média</option>
               <option value="low">Baixa</option>
             </select>
-            <select class="input-select" name="priority" id="priority">
+            <select class="input-select" name="type" id="taskType">
               <option class="default-option" value="" disabled selected hidden>
                 Defina o tipo:
               </option>
-              <option value="Work">Trabalho</option>
+              <option value="work">Trabalho</option>
               <option value="studies">Estudos</option>
               <option value="entertainment">Lazer</option>
             </select>
-            <input type="date" class="input-taskName" />
+            <input type="date" class="input-taskName" id="taskDate"/>
             <textarea
               name="description"
-              id="description"
+              id="taskDescription"
               class="input-taskName"
               placeholder="Descrição da tarefa..."
             ></textarea>
@@ -66,8 +70,10 @@
           </div>
         </div>
       </div>
+
       <div class="right-container">
         <div class="container-myTasks">
+
           <div class="myTasks-header">
             <h2 class="title-addTaks">Minhas Tarefas</h2>
             <div class="filters">
@@ -91,8 +97,8 @@
               </div>
             </div>
           </div>
-          <div class="container-tasks">
 
+          <div class="container-tasks">
             <div class="card-task">
               <div class="taskTitle">
                 <h3>Reunião de Planejamento de Projeto</h3>
@@ -110,11 +116,13 @@
                 <button class="delete-button">Deletar</button>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
+
     </main>
+    
   </body>
-  <script src="./js/main.js" defer></script>
+  <script src="./js/theme.js"></script>
+  <script src="./js/main.js"></script>
 </html>

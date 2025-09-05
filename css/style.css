@@ -9,7 +9,7 @@
   --card-foreground: #ffffff;
   --border: #29382f;
   --input: #29382f;
-  --ring: #10fc6e;
+  --ring: #61ffa0;
   --high-priority: #ff4d4d;
   --red-ring: #fd1818d5;
   --medium-priority: #eab308;
@@ -19,14 +19,14 @@
   --foreground: #111714;
   --background: #F8F9FA;
   --primary: #38e07b;
-  --primary-foreground: #D1D5DB;
-  --secondary: #D1D5DB;
-  --secondary-foreground: #9eb7a8;
-  --card: #D1D5DB;
+  --primary-foreground: #242628;
+  --secondary: #e8edf7;
+  --secondary-foreground: #282d2a;
+  --card: #f2f4f7;
   --card-foreground: #ffffff;
   --border: #D1D5DB;
   --input: #29382f;
-  --ring: #10fc6e;
+  --ring: #09b04c;
   --high-priority: #ff4d4d;
   --red-ring: #fd1818d5;
   --medium-priority: #eab308;
@@ -43,7 +43,7 @@
   --card-foreground: #ffffff;
   --border: #29382f;
   --input: #29382f;
-  --ring: #10fc6e;
+  --ring: #61ffa0;
   --high-priority: #ff4d4d;
   --red-ring: #fd1818d5;
   --medium-priority: #eab308;
@@ -63,6 +63,7 @@ body {
   font-family: "Spline Sans";
   background-color: var(--background);
   color: var(--foreground);
+  transition: 0.1s;
 }
 
 header {
@@ -95,7 +96,7 @@ header {
   justify-content: center;
   height: 40px;
   width: 40px;
-  background-color: var(--border);
+  background-color: var(--secondary);
   border-radius: 50%;
   border-style: none;
   cursor: pointer;
@@ -104,6 +105,10 @@ header {
     height: 20px;
     width: 20px;
   }
+}
+
+#darkmode-ico{
+  display: none;
 }
 
 main {
@@ -284,6 +289,7 @@ textarea {
   transition: width 0.3s ease-in-out;
   box-sizing: border-box;
   margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.05) 2.4px 2.4px 3.2px;
 }
 
 .taskTitle {
@@ -312,7 +318,7 @@ h3 {
   width: auto;
   white-space: nowrap;
   background-color: var(--red-ring);
-  color: var(--foreground);
+  color: #ffffff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 10px;
@@ -331,20 +337,20 @@ h3 {
 }
 
 .task-date {
-  color: var(--primary);
+  color: var(--ring);
   font-size: 12px;
   font-weight: 500;
   margin-top: 8px;
 }
 
 .task-description {
-  color: #c8cbc9;
+  color: var(--secondary-foreground);
   font-size: 14px;
   margin-top: 15px;
 }
 
 .task-type {
-  color: var(--primary);
+  color: var(--ring);
   font-size: 12px;
   font-weight: 500;
   margin-top: 8px;
@@ -358,24 +364,32 @@ h3 {
 }
 
 .concluded-button {
+  color: var(--background);
+  font-weight: 600;
   width: 45%;
   padding: 10px;
   border-radius: 40px;
   background-color: var(--primary);
   cursor: pointer;
+  transition: all 0.3s ease;
 
   &:hover {
     background-color: var(--ring);
   }
+  
+  &:active {
+    transform: translateY(-3px) scale(1.05);
+  }
 }
 
 .delete-button {
+  font-weight: 600;
   width: 45%;
   padding: 10px;
   border-radius: 40px;
   background-color: var(--high-priority);
   cursor: pointer;
-  color: var(--foreground);
+  color: var(--background);
 
   &:hover {
     background-color: var(--red-ring);
@@ -389,6 +403,24 @@ h3 {
 }
 
 @media (max-width: 600px) {
+  main{
+    flex-direction: column;
+  }
+
+  .right-container{
+    width: 100%;
+    overflow: visible;
+  }
+
+  .left-container{
+    width: 100%;
+    overflow: visible;
+  }
+
+  .container-myTasks{
+    padding: 20px 8%; 
+  }
+
   .card-task {
     width: 100%;
     padding: 5%;
