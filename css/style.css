@@ -187,9 +187,14 @@ textarea {
   font-weight: 600;
   cursor: pointer;
   margin-top: 10px;
+  transition: all 0.3s ease;
 
   &:hover {
     background-color: var(--ring);
+  }
+
+  &:active{
+    transform: scale(0.97);
   }
 }
 
@@ -281,6 +286,9 @@ textarea {
 }
 
 .card-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--card);
   padding: 2%;
   border-radius: 10px;
@@ -378,7 +386,7 @@ h3 {
   }
   
   &:active {
-    transform: translateY(-3px) scale(1.05);
+    transform: scale(0.97);
   }
 }
 
@@ -390,9 +398,13 @@ h3 {
   background-color: var(--high-priority);
   cursor: pointer;
   color: var(--background);
+  transition: all 0.3s ease;
 
   &:hover {
     background-color: var(--red-ring);
+  }
+  &:active{
+    transform: scale(0.97);
   }
 }
 
@@ -415,6 +427,7 @@ h3 {
   .left-container{
     width: 100%;
     overflow: visible;
+    border: none;
   }
 
   .container-myTasks{

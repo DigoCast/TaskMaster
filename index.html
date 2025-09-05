@@ -12,7 +12,6 @@
     <title>TaskMaster</title>
   </head>
   <body>
-
     <header>
       <div class="container-logo">
         <svg
@@ -26,8 +25,16 @@
       </div>
 
       <button class="btn-mode" id="theme-toggle">
-        <img src="./assets/img/lightMode.svg" alt="lightmode" id="lightmode-ico"/>
-        <img src="./assets/img/dark-mode.svg" alt="darkmode" id="darkmode-ico"/>
+        <img
+          src="./assets/img/lightMode.svg"
+          alt="lightmode"
+          id="lightmode-ico"
+        />
+        <img
+          src="./assets/img/dark-mode.svg"
+          alt="darkmode"
+          id="darkmode-ico"
+        />
       </button>
     </header>
 
@@ -47,33 +54,34 @@
               <option class="default-option" value="" disabled selected hidden>
                 Defina a prioridade:
               </option>
-              <option value="high">Alta</option>
-              <option value="medium">Média</option>
-              <option value="low">Baixa</option>
+              <option value="Alta">Alta</option>
+              <option value="Média">Média</option>
+              <option value="Baixa">Baixa</option>
             </select>
             <select class="input-select" name="type" id="taskType">
               <option class="default-option" value="" disabled selected hidden>
                 Defina o tipo:
               </option>
-              <option value="work">Trabalho</option>
-              <option value="studies">Estudos</option>
-              <option value="entertainment">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Estudos">Estudos</option>
+              <option value="Lazer">Lazer</option>
             </select>
-            <input type="date" class="input-taskName" id="taskDate"/>
+            <input type="date" class="input-taskName" id="taskDate" />
             <textarea
               name="description"
               id="taskDescription"
               class="input-taskName"
               placeholder="Descrição da tarefa..."
             ></textarea>
-            <button class="button-addTask">Adicionar Tarefa</button>
+            <button class="button-addTask" onclick="addTask()">
+              Adicionar Tarefa
+            </button>
           </div>
         </div>
       </div>
 
       <div class="right-container">
         <div class="container-myTasks">
-
           <div class="myTasks-header">
             <h2 class="title-addTaks">Minhas Tarefas</h2>
             <div class="filters">
@@ -98,19 +106,21 @@
             </div>
           </div>
 
-          <div class="container-tasks">
+          <div class="container-tasks" id="container-tasks">
             <div class="card-task">
-              <div class="taskTitle">
-                <h3>Reunião de Planejamento de Projeto</h3>
-                <div class="tooltip">
-                  <span class="tooltiptext">Alta</span>
+              <div class="upper">
+                <div class="taskTitle">
+                  <h3>Reunião de Planejamento de Projeto</h3>
+                  <div class="tooltip">
+                    <span class="tooltiptext">Alta</span>
+                  </div>
                 </div>
-              </div>              
-              <p class="task-date">Data limite: 10/12/2009</p>
-              <p class="task-description">
-                Discutir os próximos passos e definir o escopo para sprint 2.
-              </p>
-              <p class="task-type">Trabalho</p>
+                <p class="task-date">Data limite: 10/12/2009</p>
+                <p class="task-description">
+                  Discutir os próximos passos e definir o escopo para sprint 2.
+                </p>
+                <p class="task-type">Trabalho</p>
+              </div>
               <div class="task-card-buttons">
                 <button class="concluded-button">Concluir</button>
                 <button class="delete-button">Deletar</button>
@@ -119,9 +129,7 @@
           </div>
         </div>
       </div>
-
     </main>
-    
   </body>
   <script src="./js/theme.js"></script>
   <script src="./js/main.js"></script>
