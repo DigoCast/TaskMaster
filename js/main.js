@@ -14,7 +14,8 @@ function addTask() {
 
   let taskDateDay = inputDate.split("-")[2];
   let taskDateMonth = inputDate.split("-")[1];
-  let taskDateYear = inputDate.split("-")[0]; //formatar data e salvar em uma variavel.
+  let taskDateYear = inputDate.split("-")[0];
+  let taskDateFormatted = `${taskDateDay}/${taskDateMonth}/${taskDateYear}`
 
   let newTask = document.createElement("li");
   newTask.classList.add("card-task");
@@ -26,7 +27,7 @@ function addTask() {
                   <span class="tooltiptext">${taskPriority}</span>
                 </div>
               </div>              
-              <p class="task-date">Data limite:  ${taskDateDay}/${taskDateMonth}/${taskDateYear}</p>
+              <p class="task-date">Data limite: ${taskDateFormatted}</p>
               <p class="task-description">${taskDescription}</p>
               <p class="task-type">${taskType}</p>
               <div class="task-card-buttons">
