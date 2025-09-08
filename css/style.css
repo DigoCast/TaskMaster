@@ -450,6 +450,9 @@ h3 {
   .card-task {
     width: calc(50% - 1%);
   }
+  .card-concluded-task{
+    width: calc(50% - 1%);
+  }
 }
 
 @media (max-width: 600px) {
@@ -481,6 +484,11 @@ h3 {
   }
 
   .card-task {
+    width: 100%;
+    padding: 5%;
+  }
+
+  .card-concluded-task{
     width: 100%;
     padding: 5%;
   }

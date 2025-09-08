@@ -1,4 +1,3 @@
-let tasks = [];
 let defaultMessage = document.getElementById("default-message");
 let defaultMessageConcluded = document.getElementById("default-message-concluded");
 let container = document.getElementById("container-tasks");
@@ -36,15 +35,17 @@ function addTask() {
   let newTask = document.createElement("li");
   newTask.classList.add("card-task");
   newTask.innerHTML = `
-              <div class="taskTitle">
-                <h3>${taskName}</h3>
-                <div class="tooltip ${priorityColor}">
-                  <span class="tooltiptext ${priorityColor}">${taskPriority}</span>
-                </div>
-              </div>              
-              <p class="task-date">Data limite: ${taskDateFormatted}</p>
-              <p class="task-description">${taskDescription}</p>
-              <p class="task-type">${taskType}</p>
+              <div class="upper">
+                <div class="taskTitle">
+                  <h3>${taskName}</h3>
+                  <div class="tooltip ${priorityColor}">
+                    <span class="tooltiptext ${priorityColor}">${taskPriority}</span>
+                  </div>
+                </div>              
+                <p class="task-date">Data limite: ${taskDateFormatted}</p>
+                <p class="task-description">${taskDescription}</p>
+                <p class="task-type">${taskType}</p>
+              </div>
               <div class="task-card-buttons">
                 <button class="concluded-button">Concluir</button>
                 <button class="delete-button">Deletar</button>
@@ -61,18 +62,18 @@ function addTask() {
   concludedButton.addEventListener("click", function(){
     newTask.classList.remove("card-task");
     newTask.classList.add("card-concluded-task");
+    
+    listConcluded.appendChild(newTask); 
+
     updateDefaultMessage();
+    concludedButton.textContent = "Concluída";
+    concludedButton.disabled = true;
+    concludedButton.classList.add("concluded-button-conclu"); 
+    concludedButton.classList.remove("concluded-button");
   })
 
   containerConcluded.appendChild(newTask)
 
-
-  const taskObject = {taskName, taskPriority, taskPriority, taskType, taskDescription}
-  tasks.push(taskObject);
-  console.log(tasks)
-  
-  
-  
   container.appendChild(newTask);
   updateDefaultMessage();
 
