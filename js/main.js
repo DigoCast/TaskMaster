@@ -1,4 +1,14 @@
-let tasks = []
+let tasks = [];
+let defaultMessage = document.getElementById("default-message");
+let container = document.getElementById("container-tasks");
+
+function updateDefaultMessage() {
+  if (container.children.length === 0) {
+    defaultMessage.style.display = "flex";
+  } else {
+    defaultMessage.style.display = "none";
+  }
+}
 
 function addTask() {
   let taskName = document.getElementById("taskName").value;
@@ -12,19 +22,24 @@ function addTask() {
     return;
   }
 
-  let taskDateDay = inputDate.split("-")[2];
-  let taskDateMonth = inputDate.split("-")[1];
-  let taskDateYear = inputDate.split("-")[0];
-  let taskDateFormatted = `${taskDateDay}/${taskDateMonth}/${taskDateYear}`
+  let priorityColor = ""
+
+  switch(taskPriority){
+    case "Alta" : priorityColor = "tooltip-high"; break;
+    case "Média" : priorityColor = "tooltip-medium"; break;
+    case "Baixa" : priorityColor = "tooltip-low"; break;
+  }
+
+  let [year, month, day] = inputDate.split("-");
+  let taskDateFormatted = `${day}/${month}/${year}`;
 
   let newTask = document.createElement("li");
   newTask.classList.add("card-task");
-  container = document.getElementById("container-tasks");
   newTask.innerHTML = `
               <div class="taskTitle">
                 <h3>${taskName}</h3>
-                <div class="tooltip">
-                  <span class="tooltiptext">${taskPriority}</span>
+                <div class="tooltip ${priorityColor}">
+                  <span class="tooltiptext ${priorityColor}">${taskPriority}</span>
                 </div>
               </div>              
               <p class="task-date">Data limite: ${taskDateFormatted}</p>
@@ -36,13 +51,19 @@ function addTask() {
               </div>
             `;
 
-  const taskObject = {taskName, taskPriority, taskType, taskDescription} // Adicionar data
+  const taskObject = {taskName, taskPriority, taskPriority, taskType, taskDescription}
+  tasks.push(taskObject);
+  console.log(tasks)
+  
+  
   const deleteButton = newTask.querySelector(".delete-button");
   deleteButton.addEventListener("click", function(){
     newTask.remove();
+    updateDefaultMessage();
   })
 
   container.appendChild(newTask);
+  updateDefaultMessage();
 
   document.getElementById("taskName").value = "";
   document.getElementById("taskPriority").value = "";
@@ -53,4 +74,7 @@ function addTask() {
 
 function deleteTask(element){
   element.closest("li.card-task").remove();
+  updateDefaultMessage();
 }
+
+updateDefaultMessage();
