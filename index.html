@@ -85,32 +85,25 @@
           <div class="myTasks-header">
             <h2 class="title-addTaks">Minhas Tarefas</h2>
             <div class="filters">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="option[356]" value="288" />
-                  <span>Todas</span>
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="option[356]" value="288" />
-                  <span>Ordenar</span>
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="option[356]" value="288" />
-                  <span>Filtrar</span>
-                </label>
-              </div>
+              <select class="input-select" id="priorityFilterDropdown">
+                <option value="all" selected>Prioridade (Todas)</option>
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+              </select>
+
+              <select class="input-select" id="categoryFilterDropdown">
+                <option value="all" selected>Categoria (Todas)</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Estudos">Estudos</option>
+                <option value="Lazer">Lazer</option>
+              </select>
             </div>
           </div>
           <div class="default-message" id="default-message">
-            <p>Ainda não há nenhuma tarefa...<p>
+            <div>Ainda não há nenhuma tarefa...</div>
           </div>
-          <ul class="container-tasks" id="container-tasks">
-            
-          </ul>
+          <ul class="container-tasks" id="container-tasks"></ul>
         </div>
 
         <div class="container-conclued-task">
@@ -120,30 +113,7 @@
           <div class="default-message" id="default-message-concluded">
             <p>Ainda não há tarefas concluidas...</p>
           </div>
-          <ul class="container-tasks" id="list-concluded-tasks">
-            <li class="card-concluded-task">
-              <div class="upper">
-                <div class="taskTitle">
-                  <h3>Reunião de Planejamento de Projeto</h3>
-                  <div class="tooltip tooltip-medium">
-                    <span class="tooltiptext tooltip-medium">Média</span>
-                  </div>
-                </div>
-                <p class="task-date">Data limite: 10/12/2009</p>
-                <p class="task-description">
-                  Discutir os próximos passos e definir o escopo para sprint 2.
-                </p>
-                <p class="task-type">Trabalho</p>
-              </div>
-              <div class="task-card-buttons">
-                <button class="concluded-button-conclu">Concluir</button>
-                <button class="delete-button">
-                  Deletar
-                </button>
-              </div>
-            </li>
-          </ul>
-
+          <ul class="container-tasks" id="list-concluded-tasks"></ul>
         </div>
       </div>
     </main>

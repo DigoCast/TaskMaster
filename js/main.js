@@ -1,8 +1,8 @@
+let tasks = [];
 let defaultMessage = document.getElementById("default-message");
 let defaultMessageConcluded = document.getElementById("default-message-concluded");
 let container = document.getElementById("container-tasks");
 let listConcluded = document.getElementById("list-concluded-tasks");
-let containerConcluded = document.getElementById("list-concluded-tasks");
 
 function updateDefaultMessage() {
     defaultMessage.style.display = container.children.length === 0 ? "flex" : "none";
@@ -34,6 +34,8 @@ function addTask() {
 
   let newTask = document.createElement("li");
   newTask.classList.add("card-task");
+  newTask.setAttribute("data-priority", taskPriority); 
+  newTask.setAttribute("data-type", taskType);
   newTask.innerHTML = `
               <div class="upper">
                 <div class="taskTitle">
@@ -56,23 +58,30 @@ function addTask() {
   deleteButton.addEventListener("click", function(){
     newTask.remove();
     updateDefaultMessage();
+    applyFilters(); 
   })
 
   const concludedButton = newTask.querySelector(".concluded-button");
   concludedButton.addEventListener("click", function(){
+    newTask.remove();
+
     newTask.classList.remove("card-task");
     newTask.classList.add("card-concluded-task");
-    
-    listConcluded.appendChild(newTask); 
-
+  
+    listConcluded.appendChild(newTask);
     updateDefaultMessage();
-    concludedButton.textContent = "Concluída";
-    concludedButton.disabled = true;
-    concludedButton.classList.add("concluded-button-conclu"); 
-    concludedButton.classList.remove("concluded-button");
+
+    const newButton = newTask.querySelector(".concluded-button");
+    if (newButton) {
+        newButton.textContent = "Concluída";
+        newButton.classList.add("concluded-button-conclu");
+        newButton.classList.remove("concluded-button");
+        newButton.disabled = true;
+    }
   })
 
-  containerConcluded.appendChild(newTask)
+  const taskObject = {taskName, taskPriority, taskType, taskDescription};
+  tasks.push(taskObject);
 
   container.appendChild(newTask);
   updateDefaultMessage();
@@ -90,3 +99,27 @@ function deleteTask(element){
 }
 
 updateDefaultMessage();
+
+function applyFilters() {
+    const priorityValue = document.getElementById('priorityFilterDropdown').value;
+    const categoryValue = document.getElementById('categoryFilterDropdown').value;
+    
+    const tasksToFilter = document.querySelectorAll("#container-tasks > li.card-task");
+
+    tasksToFilter.forEach(task => {
+        const taskPriority = task.getAttribute("data-priority");
+        const taskCategory = task.getAttribute("data-type");
+
+        const priorityMatch = (priorityValue === "all") || (taskPriority === priorityValue);
+        const categoryMatch = (categoryValue === "all") || (taskCategory === categoryValue);
+
+        if (priorityMatch && categoryMatch) {
+            task.style.display = ""; 
+        } else {
+            task.style.display = "none"; 
+        }
+    });
+}
+
+document.getElementById('priorityFilterDropdown').addEventListener('change', applyFilters);
+document.getElementById('categoryFilterDropdown').addEventListener('change', applyFilters);
